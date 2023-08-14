@@ -1,0 +1,20 @@
+<h2>My Powers</h2>
+
+<div>
+  <label for="new-power">Power type: </label>
+  <input id="new-power" #powerName />
+
+  <button type="button" class="add-button" (click)="add(powerName.value); powerName.value=''">
+    Add power
+  </button>
+</div>
+
+<ul class="powers">
+  <li *ngFor="let power of powers">
+    <a routerLink="/power-detail/{{power.id}}">
+      <span class="badge">{{power.id}}</span> {{power.name}}
+    </a>
+    <button type="button" class="delete" title="delete power"
+      (click)="delete(power)">x</button>
+  </li>
+</ul>

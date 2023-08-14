@@ -1,0 +1,11 @@
+<div *ngIf="power">
+    <h2>{{power.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{power.id}}</div>
+    <div>
+      <label for="power-name">Power name: </label>
+      <input id="power-name" [(ngModel)]="power.name" placeholder="Power name"/>
+    </div>
+    <div>
+    <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="save()">save</button>
+  </div>

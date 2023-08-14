@@ -1,0 +1,40 @@
+<form [formGroup]="heroForm" (ngSubmit)="save()">
+
+  <div>
+    <h2>{{hero.name | uppercase}} Details</h2>
+  </div>
+
+  <div><span>city:</span>{{heroCity.name}}</div>
+
+  <div><span>id: </span>{{hero.id}}</div>
+
+  <label for="name">Name: </label>
+  <input id="name" type="text" formControlName="name" required>
+
+  <div>
+
+    <span>City: </span><select class="custom-select" formControlName="city">
+      <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
+    </select>
+
+  </div>
+
+  <div>
+    <div>Powers:</div>
+
+    <span></span><select class="custom-select" formControlName="power">
+      <option *ngFor="let power of powers" [ngValue]="power">{{power.name}}</option>
+    </select>
+
+    <button class="button-add" type="button" (click)="add()">Add power</button>
+
+  </div> 
+
+  <div *ngFor="let power of heroPowers">
+    {{power.name}}
+    <button class="button-x" type="button" (click)="remove(power)">x</button>
+  </div>
+
+</form>
+
+<hr><button type="button" (click)="save()">Update Hero</button>
